@@ -1,0 +1,445 @@
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:wght@400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Piazzolla', serif;
+}
+
+#image-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #666666;
+  position: relative;
+}
+
+#image-container #text-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 66vw;
+  height: 100vh;
+  padding-top: 100px;
+  color: #333333;
+  -webkit-animation: text-color-change 20s ease-in 0s infinite;
+          animation: text-color-change 20s ease-in 0s infinite;
+  z-index: 2;
+}
+
+#image-container #text-container h1 {
+  margin-top: -100px;
+  opacity: 0;
+  font-size: 250px;
+  font-weight: 900;
+  -webkit-animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite;
+          animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite;
+}
+
+#image-container #text-container h2 {
+  opacity: 0;
+  font-size: 150px;
+  font-weight: 700;
+  -webkit-animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite;
+          animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite;
+}
+
+#image-container #text-container h3 {
+  margin-top: -50px;
+  margin-bottom: 20vh;
+  opacity: 0;
+  font-size: 40px;
+  -webkit-animation: text-mover 5s linear 0.1s infinite, text-opaciter 5s linear 0s infinite;
+          animation: text-mover 5s linear 0.1s infinite, text-opaciter 5s linear 0s infinite;
+}
+
+#image-container .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 100vw;
+  height: 100vh;
+}
+
+#image-container #slide1 {
+  background-image: url("https://picsum.photos/id/1067/1920/1024");
+  background-size: cover;
+  opacity: 1;
+  -webkit-animation: background-change 20s linear 0s infinite;
+          animation: background-change 20s linear 0s infinite;
+}
+
+#image-container #white-element {
+  background: rgba(238, 238, 238, 0.2);
+  z-index: 4;
+  height: 100vh;
+  width: 40vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#image-container #white-element #slide-num {
+  right: 20vw;
+  bottom: 0;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: -150px;
+}
+
+#image-container #white-element #slide-num #zero {
+  font-size: 300px;
+  font-weight: 900;
+  color: #333333;
+  text-shadow: 10px 10px 10px 10px rgba(51, 51, 51, 0.5);
+  -webkit-animation: text-color-change 20s ease-in 0s infinite;
+          animation: text-color-change 20s ease-in 0s infinite;
+}
+
+#image-container #white-element #slide-num #second-number {
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+}
+
+#image-container #white-element #slide-num ::after {
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+  content: '4';
+  -webkit-animation: number-opacity 20s ease-in 0s infinite;
+          animation: number-opacity 20s ease-in 0s infinite;
+}
+
+@-webkit-keyframes text-mover {
+  from {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  15% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  85% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes text-mover {
+  from {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  15% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  85% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes text-opaciter {
+  from {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes text-opaciter {
+  from {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes text-color-change {
+  from {
+    color: #333333;
+  }
+  20% {
+    color: #333333;
+  }
+  25% {
+    color: #eeeeee;
+  }
+  45% {
+    color: #eeeeee;
+  }
+  50% {
+    color: #333333;
+  }
+  70% {
+    color: #333333;
+  }
+  75% {
+    color: #eeeeee;
+  }
+  95% {
+    color: #eeeeee;
+  }
+  to {
+    color: #333333;
+  }
+}
+
+@keyframes text-color-change {
+  from {
+    color: #333333;
+  }
+  20% {
+    color: #333333;
+  }
+  25% {
+    color: #eeeeee;
+  }
+  45% {
+    color: #eeeeee;
+  }
+  50% {
+    color: #333333;
+  }
+  70% {
+    color: #333333;
+  }
+  75% {
+    color: #eeeeee;
+  }
+  95% {
+    color: #eeeeee;
+  }
+  to {
+    color: #333333;
+  }
+}
+
+@-webkit-keyframes number-opacity {
+  from {
+    opacity: 0;
+    content: '1';
+  }
+  2% {
+    opacity: 1;
+    content: '1';
+  }
+  20% {
+    opacity: 1;
+    content: '1';
+  }
+  25% {
+    opacity: 0;
+    content: '1';
+  }
+  26% {
+    opacity: 0;
+    content: '2';
+  }
+  27% {
+    opacity: 1;
+    content: '2';
+  }
+  45% {
+    opacity: 1;
+    content: '2';
+  }
+  50% {
+    opacity: 0;
+    content: '2';
+  }
+  51% {
+    opacity: 0;
+    content: '3';
+  }
+  52% {
+    opacity: 1;
+    content: '3';
+  }
+  70% {
+    opacity: 1;
+    content: '3';
+  }
+  75% {
+    opacity: 0;
+    content: '3';
+  }
+  76% {
+    opacity: 0;
+    content: '4';
+  }
+  77% {
+    opacity: 1;
+    content: '4';
+  }
+  95% {
+    opacity: 1;
+    content: '4';
+  }
+  to {
+    opacity: 0;
+    content: '4';
+  }
+}
+
+@keyframes number-opacity {
+  from {
+    opacity: 0;
+    content: '1';
+  }
+  2% {
+    opacity: 1;
+    content: '1';
+  }
+  20% {
+    opacity: 1;
+    content: '1';
+  }
+  25% {
+    opacity: 0;
+    content: '1';
+  }
+  26% {
+    opacity: 0;
+    content: '2';
+  }
+  27% {
+    opacity: 1;
+    content: '2';
+  }
+  45% {
+    opacity: 1;
+    content: '2';
+  }
+  50% {
+    opacity: 0;
+    content: '2';
+  }
+  51% {
+    opacity: 0;
+    content: '3';
+  }
+  52% {
+    opacity: 1;
+    content: '3';
+  }
+  70% {
+    opacity: 1;
+    content: '3';
+  }
+  75% {
+    opacity: 0;
+    content: '3';
+  }
+  76% {
+    opacity: 0;
+    content: '4';
+  }
+  77% {
+    opacity: 1;
+    content: '4';
+  }
+  95% {
+    opacity: 1;
+    content: '4';
+  }
+  to {
+    opacity: 0;
+    content: '4';
+  }
+}
+
+@-webkit-keyframes background-change {
+  from, 20% {
+    background-image: url("https://picsum.photos/id/102/1920/1024"), url("https://picsum.photos/id/23/1920/1024");
+  }
+  25%, 45% {
+    background-image: url("https://picsum.photos/id/23/1920/1024"), url("https://picsum.photos/id/1014/1920/1024");
+  }
+  50%, 70% {
+    background-image: url("https://picsum.photos/id/1014/1920/1024"), url("https://picsum.photos/id/494/1920/1024");
+  }
+  75%, 95% {
+    background-image: url("https://picsum.photos/id/494/1920/1024"), url("https://picsum.photos/id/102/1920/1024");
+  }
+  to {
+    background-image: url("https://picsum.photos/id/102/1920/1024");
+  }
+}
+
+@keyframes background-change {
+  from, 20% {
+    background-image: url("https://picsum.photos/id/102/1920/1024"), url("https://picsum.photos/id/23/1920/1024");
+  }
+  25%, 45% {
+    background-image: url("https://picsum.photos/id/23/1920/1024"), url("https://picsum.photos/id/1014/1920/1024");
+  }
+  50%, 70% {
+    background-image: url("https://picsum.photos/id/1014/1920/1024"), url("https://picsum.photos/id/494/1920/1024");
+  }
+  75%, 95% {
+    background-image: url("https://picsum.photos/id/494/1920/1024"), url("https://picsum.photos/id/102/1920/1024");
+  }
+  to {
+    background-image: url("https://picsum.photos/id/102/1920/1024");
+  }
+}
+/*# sourceMappingURL=style.css.map */

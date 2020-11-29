@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@400;500;700;900&display=swap')
+
+$darkColor: #333333
+$lightColor: #eeeeee
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Piazzolla', serif
+#image-container
+    width: 100vw
+    height: 100vh
+    z-index: 1
+    background-color: #666666
+    position: relative
+    #text-container
+        // position: fixed
+        display: flex
+        flex-direction: column
+        width: 66vw
+        height: 100vh
+        padding-top: 100px
+        color: $darkColor
+        animation: text-color-change 20s ease-in 0s infinite
+        z-index: 2
+        // border: 5px solid red
+        h1
+            margin-top: -100px
+            opacity: 0
+            font-size: 250px
+            font-weight: 900
+            animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite
+        h2
+            opacity: 0
+            font-size: 150px
+            font-weight: 700
+            animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite
+        h3
+            margin-top: -50px
+            margin-bottom: 20vh
+            opacity: 0
+            font-size: 40px
+            animation: text-mover 5s linear 0.1s infinite, text-opaciter 5s linear 0s infinite
+    .item
+        display: flex
+        position: fixed
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        min-width: 100vw
+        height: 100vh
+
+    #slide1
+        background-image: url('https://picsum.photos/id/1067/1920/1024')
+        background-size: cover
+        opacity: 1
+        animation: background-change 20s linear 0s infinite
+
+    #white-element
+        background: rgba($lightColor, 0.2)
+        z-index: 4
+        height: 100vh
+        width: 40vw
+        position: fixed
+        top: 0
+        right: 0
+        display: flex
+        align-items: flex-end
+        // position: relative
+        #slide-num
+            // position: absolute
+            right: 20vw
+            bottom: 0
+            width: 300px
+            margin: 0 auto
+            margin-bottom: -150px
+            #zero
+                font-size: 300px
+                font-weight: 900
+                color: $darkColor
+                text-shadow: 10px 10px 10px 10px rgba($darkColor, 0.5)
+                animation: text-color-change 20s ease-in 0s infinite
+            #second-number
+                transform: rotateY(90deg)
+            ::after
+                transform: rotateY(90deg)
+                content: '4'
+                animation: number-opacity 20s ease-in 0s infinite
+
+@keyframes text-mover
+    from
+        transform: translateX(-200px)
+    15%
+        transform: translateX(-0px)
+    85%
+        transform: translateX(0px)
+    to
+        transform: translateX(200px)
+        opacity: 0
+@keyframes text-opaciter
+    from
+        opacity: 0
+    10%
+        opacity: 0
+    15%
+        opacity: 1
+    85%
+        opacity: 1
+    90%
+        opacity: 0
+    to
+        opacity: 0
+@keyframes text-color-change
+    from
+        color: $darkColor
+    20%
+        color: $darkColor
+    25%
+        color: $lightColor
+    45%
+        color: $lightColor
+    50%
+        color: $darkColor
+    70%
+        color: $darkColor
+    75%
+        color: $lightColor
+    95%
+        color: $lightColor
+    to
+        color: $darkColor
+@keyframes number-opacity
+    from
+        opacity: 0
+        content: '1'
+
+    2%
+        opacity: 1
+        content: '1'
+    20%
+        opacity: 1
+        content: '1'
+    25%
+        opacity: 0
+        content: '1'
+    26%
+        opacity: 0
+        content: '2'
+    27%
+        opacity: 1
+        content: '2'
+    45%
+        opacity: 1
+        content: '2'
+    50%
+        opacity: 0
+        content: '2'
+    51%
+        opacity: 0
+        content: '3'
+    52%
+        opacity: 1
+        content: '3'
+    70%
+        opacity: 1
+        content: '3'
+    75%
+        opacity: 0
+        content: '3'
+    76%
+        opacity: 0
+        content: '4'
+    77%
+        opacity: 1
+        content: '4'
+    95%
+        opacity: 1
+        content: '4'
+    to
+        opacity: 0
+        content: '4'
+@keyframes background-change
+    from, 20%
+        background-image: url('https://picsum.photos/id/102/1920/1024'), url('https://picsum.photos/id/23/1920/1024')
+    25%, 45%
+        background-image: url('https://picsum.photos/id/23/1920/1024'), url('https://picsum.photos/id/1014/1920/1024')
+    50%, 70%
+        background-image: url('https://picsum.photos/id/1014/1920/1024'), url('https://picsum.photos/id/494/1920/1024')
+    75%, 95%
+        background-image: url('https://picsum.photos/id/494/1920/1024'), url('https://picsum.photos/id/102/1920/1024')
+    to
+        background-image: url('https://picsum.photos/id/102/1920/1024')
