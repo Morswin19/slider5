@@ -2,131 +2,121 @@
 
 $darkColor: #333333
 $lightColor: #eeeeee
+$image1: url('https://picsum.photos/id/102/1920/1024')
+$image2: url('https://picsum.photos/id/23/1920/1024')
+$image3: url('https://picsum.photos/id/1014/1920/1024')
+$image4: url('https://picsum.photos/id/494/1920/1024')
 
 *
     margin: 0
     padding: 0
     box-sizing: border-box
     font-family: 'Piazzolla', serif
-#image-container
+
+#container
+    position: relative
     width: 100vw
     height: 100vh
-    z-index: 1
-    background-color: #666666
-    position: relative
-    #text-container
-        // position: fixed
+    #slide
         display: flex
-        flex-direction: column
-        width: 66vw
-        height: 100vh
-        padding-top: 100px
-        color: $darkColor
-        animation: text-color-change 20s ease-in 0s infinite
-        z-index: 2
-        // border: 5px solid red
-        h1
-            margin-top: -100px
-            opacity: 0
-            font-size: 250px
-            font-weight: 900
-            animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite
-        h2
-            opacity: 0
-            font-size: 150px
-            font-weight: 700
-            animation: text-mover 5s linear 0s infinite, text-opaciter 5s linear 0s infinite
-        h3
-            margin-top: -50px
-            margin-bottom: 20vh
-            opacity: 0
-            font-size: 40px
-            animation: text-mover 5s linear 0.1s infinite, text-opaciter 5s linear 0s infinite
-    .item
-        display: flex
-        position: fixed
         flex-direction: column
         justify-content: center
         align-items: center
         min-width: 100vw
         height: 100vh
-
-    #slide1
-        background-image: url('https://picsum.photos/id/1067/1920/1024')
+        background-image: $image1
         background-size: cover
         opacity: 1
         animation: background-change 20s linear 0s infinite
-
-    #white-element
-        background: rgba($lightColor, 0.2)
-        z-index: 4
-        height: 100vh
-        width: 40vw
-        position: fixed
-        top: 0
-        right: 0
-        display: flex
-        align-items: flex-end
-        // position: relative
-        #slide-num
-            // position: absolute
-            right: 20vw
-            bottom: 0
-            width: 300px
-            margin: 0 auto
-            margin-bottom: -150px
-            #zero
-                font-size: 300px
+        #text-container
+            display: flex
+            flex-direction: column
+            width: 66vw
+            height: 100vh
+            padding-top: 100px
+            color: $darkColor
+            animation: text-color-change 20s ease-in 0s infinite
+            z-index: 2
+            h1, h2, h3
+                opacity: 0
+                animation: text-mover 5s linear 0s infinite, text-opacity 5s linear 0s infinite
+                cursor: default
+            h1
+                margin-top: -100px
+                font-size: 250px
                 font-weight: 900
-                color: $darkColor
-                text-shadow: 10px 10px 10px 10px rgba($darkColor, 0.5)
-                animation: text-color-change 20s ease-in 0s infinite
-            #second-number
-                transform: rotateY(90deg)
-            ::after
-                transform: rotateY(90deg)
-                content: '4'
-                animation: number-opacity 20s ease-in 0s infinite
+            h2
+                font-size: 150px
+                font-weight: 700
+            h3
+                margin-top: -50px
+                margin-bottom: 20vh
+                font-size: 40px
+                animation-delay: 0.1s
+            @media (max-width: 1200px)
+                h1
+                    font-size: 150px
+                    margin-top: -60px
+                h2
+                    font-size: 90px
+                    margin-top: 50px
+                h3
+                    margin-top: -30px
+                    font-size: 30px
+
+        #white-element
+            position: fixed
+            top: 0
+            right: 0
+            display: flex
+            align-items: flex-end
+            height: 100vh
+            min-width: 40vw
+            background: rgba($lightColor, 0.2)
+            z-index: 1
+            #slide-number
+                width: 400px
+                margin-left: 25px
+                margin: 0 auto
+                margin-bottom: -150px
+                #zero
+                    font-size: 300px
+                    font-weight: 900
+                    color: $darkColor
+                    animation: text-color-change 20s ease-in 0s infinite
+                #second-number
+                ::after
+                    content: '1'
+                    animation: number-opacity 20s ease-in 0s infinite
+            @media (max-width: 1200px)
+                #slide-number
+                    margin-bottom: -130px
+                    #zero
+                        font-size: 250px
 
 @keyframes text-mover
     from
         transform: translateX(-200px)
-    15%
+    15%, 80%
         transform: translateX(-0px)
-    85%
-        transform: translateX(0px)
     to
         transform: translateX(200px)
         opacity: 0
-@keyframes text-opaciter
-    from
+@keyframes text-opacity
+    from, 10%
         opacity: 0
-    10%
-        opacity: 0
-    15%
+    15%, 85%
         opacity: 1
-    85%
-        opacity: 1
-    90%
-        opacity: 0
-    to
+    90%, to
         opacity: 0
 @keyframes text-color-change
-    from
+    from, 20%
         color: $darkColor
-    20%
-        color: $darkColor
-    25%
+    25%, 45%
         color: $lightColor
-    45%
-        color: $lightColor
-    50%
+    50%, 70%
         color: $darkColor
-    70%
-        color: $darkColor
-    75%
-        color: $lightColor
-    95%
+    75%, 95%
         color: $lightColor
     to
         color: $darkColor
@@ -135,10 +125,7 @@ $lightColor: #eeeeee
         opacity: 0
         content: '1'
 
-    2%
-        opacity: 1
-        content: '1'
-    20%
+    2.5%, 20%
         opacity: 1
         content: '1'
     25%
@@ -147,10 +134,7 @@ $lightColor: #eeeeee
     26%
         opacity: 0
         content: '2'
-    27%
-        opacity: 1
-        content: '2'
-    45%
+    27.5%, 45%
         opacity: 1
         content: '2'
     50%
@@ -159,10 +143,7 @@ $lightColor: #eeeeee
     51%
         opacity: 0
         content: '3'
-    52%
-        opacity: 1
-        content: '3'
-    70%
+    52.5%, 70%
         opacity: 1
         content: '3'
     75%
@@ -171,10 +152,7 @@ $lightColor: #eeeeee
     76%
         opacity: 0
         content: '4'
-    77%
-        opacity: 1
-        content: '4'
-    95%
+    77.5%, 95%
         opacity: 1
         content: '4'
     to
@@ -182,12 +160,12 @@ $lightColor: #eeeeee
         content: '4'
 @keyframes background-change
     from, 20%
-        background-image: url('https://picsum.photos/id/102/1920/1024'), url('https://picsum.photos/id/23/1920/1024')
+        background-image: $image1, $image2
     25%, 45%
-        background-image: url('https://picsum.photos/id/23/1920/1024'), url('https://picsum.photos/id/1014/1920/1024')
+        background-image: $image2, $image3
     50%, 70%
-        background-image: url('https://picsum.photos/id/1014/1920/1024'), url('https://picsum.photos/id/494/1920/1024')
+        background-image: $image3, $image4
     75%, 95%
-        background-image: url('https://picsum.photos/id/494/1920/1024'), url('https://picsum.photos/id/102/1920/1024')
+        background-image: $image4, $image1
     to
-        background-image: url('https://picsum.photos/id/102/1920/1024')
+        background-image: $image1
